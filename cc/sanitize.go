@@ -306,12 +306,10 @@ func (sanitize *sanitize) deps(ctx BaseModuleContext, deps Deps) Deps {
 }
 
 func (sanitize *sanitize) flags(ctx ModuleContext, flags Flags) Flags {
-	minimalRuntimeLib := config.UndefinedBehaviorSanitizerMinimalRuntimeLibrary(ctx.toolchain()) + ".a"
-	minimalRuntimePath := "${config.ClangAsanLibDir}/" + minimalRuntimeLib
+	minimalRuntimePath := "${config.ClangAsanLibDir}/" + config.UndefinedBehaviorSanitizerMinimalRuntimeLibrary(ctx.toolchain()) + ".a"
 
 	if ctx.Device() && sanitize.Properties.MinimalRuntimeDep {
 		flags.LdFlags = append(flags.LdFlags, minimalRuntimePath)
-		flags.LdFlags = append(flags.LdFlags, "-Wl,--exclude-libs,"+minimalRuntimeLib)
 	}
 	if !sanitize.Properties.SanitizerEnabled {
 		return flags
@@ -457,7 +455,6 @@ func (sanitize *sanitize) flags(ctx ModuleContext, flags Flags) Flags {
 			if enableMinimalRuntime(sanitize) {
 				flags.CFlags = append(flags.CFlags, strings.Join(minimalRuntimeFlags, " "))
 				flags.libFlags = append([]string{minimalRuntimePath}, flags.libFlags...)
-				flags.LdFlags = append(flags.LdFlags, "-Wl,--exclude-libs,"+minimalRuntimeLib)
 			}
 		}
 	}
