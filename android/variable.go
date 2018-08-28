@@ -220,6 +220,7 @@ type productVariables struct {
 	SanitizeDeviceArch []string `json:",omitempty"`
 
 	ArtUseReadBarrier *bool `json:",omitempty"`
+	ArtDefaultGCType  *string `json:",omitempty"`
 
 	BtConfigIncludeDir *string `json:",omitempty"`
 
