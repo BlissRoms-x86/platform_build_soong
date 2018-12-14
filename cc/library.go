@@ -660,9 +660,9 @@ func (library *libraryDecorator) linkSAbiDumpFiles(ctx ModuleContext, objs Objec
 		exportedHeaderFlags := strings.Join(SourceAbiFlags, " ")
 		library.sAbiOutputFile = TransformDumpToLinkedDump(ctx, objs.sAbiDumpFiles, soFile, fileName, exportedHeaderFlags)
 		if refSourceDumpFile.Valid() {
-			unzippedRefDump := UnzipRefDump(ctx, refSourceDumpFile.Path(), fileName)
-			library.sAbiDiff = SourceAbiDiff(ctx, library.sAbiOutputFile.Path(),
-				unzippedRefDump, fileName, exportedHeaderFlags, ctx.isVndkExt())
+//			unzippedRefDump := UnzipRefDump(ctx, refSourceDumpFile.Path(), fileName)
+//			library.sAbiDiff = SourceAbiDiff(ctx, library.sAbiOutputFile.Path(),
+//				unzippedRefDump, fileName, exportedHeaderFlags, ctx.isVndkExt())
 		}
 	}
 }
