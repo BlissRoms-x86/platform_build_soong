@@ -48,6 +48,7 @@ var (
 		"silvermont": []string{
 			"-march=slm",
 		},
+		"kabylake": []string{},
 	}
 
 	x86_64ArchFeatureCflags = map[string][]string{
@@ -57,6 +58,7 @@ var (
 		"sse4_2": []string{"-msse4.2"},
 		"popcnt": []string{"-mpopcnt"},
 		"avx":    []string{"-mavx"},
+		"avx2":   []string{"-mavx2"},
 		"aes_ni": []string{"-maes"},
 	}
 )
@@ -69,6 +71,7 @@ func init() {
 	android.RegisterArchVariants(android.X86_64,
 		"haswell",
 		"ivybridge",
+		"kabylake",
 		"sandybridge",
 		"silvermont")
 	android.RegisterArchFeatures(android.X86_64,
@@ -78,6 +81,7 @@ func init() {
 		"sse4_2",
 		"aes_ni",
 		"avx",
+		"avx2",
 		"popcnt")
 	android.RegisterArchVariantFeatures(android.X86_64, "",
 		"ssse3",
@@ -100,6 +104,15 @@ func init() {
 		"sse4_2",
 		"aes_ni",
 		"avx",
+		"popcnt")
+	android.RegisterArchVariantFeatures(android.X86_64, "kabylake",
+		"ssse3",
+		"sse4",
+		"sse4_1",
+		"sse4_2",
+		"aes_ni",
+		"avx",
+		"avx2",
 		"popcnt")
 	android.RegisterArchVariantFeatures(android.X86_64, "sandybridge",
 		"ssse3",

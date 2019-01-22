@@ -57,6 +57,9 @@ var (
 			"-march=core-avx-i",
 			"-mfpmath=sse",
 		},
+                "kabylake": []string{
+                        "-mfpmath=sse",
+                },
 		"sandybridge": []string{
 			"-march=corei7",
 			"-mfpmath=sse",
@@ -73,6 +76,7 @@ var (
 		"sse4_1": []string{"-msse4.1"},
 		"sse4_2": []string{"-msse4.2"},
 		"avx":    []string{"-mavx"},
+                "avx2":   []string{"-mavx2"},
 		"aes_ni": []string{"-maes"},
 	}
 )
@@ -86,6 +90,7 @@ func init() {
 		"atom",
 		"haswell",
 		"ivybridge",
+                "kabylake",
 		"sandybridge",
 		"silvermont",
 		"x86_64")
@@ -96,6 +101,7 @@ func init() {
 		"sse4_2",
 		"aes_ni",
 		"avx",
+                "avx2",
 		"popcnt",
 		"movbe")
 	android.RegisterArchVariantFeatures(android.X86, "x86_64",
@@ -124,6 +130,15 @@ func init() {
 		"aes_ni",
 		"avx",
 		"popcnt")
+         android.RegisterArchVariantFeatures(android.X86, "kabylake",
+                "ssse3",
+                "sse4",
+                "sse4_1",
+                "sse4_2",
+                "aes_ni",
+                "avx",
+                "avx2",
+                "popcnt")
 	android.RegisterArchVariantFeatures(android.X86, "sandybridge",
 		"ssse3",
 		"sse4",
