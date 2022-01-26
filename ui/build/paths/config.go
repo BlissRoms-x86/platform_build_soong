@@ -77,6 +77,7 @@ var Configuration = map[string]PathConfig{
 	"bash":    Allowed,
 	"date":    Allowed,
 	"dd":      Allowed,
+	"depmod":  Allowed,
 	"diff":    Allowed,
 	"dlv":     Allowed,
 	"expr":    Allowed,
@@ -95,7 +96,13 @@ var Configuration = map[string]PathConfig{
 	"sh":      Allowed,
 	"tr":      Allowed,
 	"unzip":   Allowed,
+	"zstd":    Allowed,
 	"zip":     Allowed,
+	"llvm-ar": Allowed,
+	"llvm-nm": Allowed,
+	"llvm-objcopy": Allowed,
+	"llvm-objdump": Allowed,
+	"llvm-strip":   Allowed,
 
 	// Host toolchain is removed. In-tree toolchain should be used instead.
 	// GCC also can't find cc1 with this implementation.
