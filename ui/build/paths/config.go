@@ -94,6 +94,7 @@ var Configuration = map[string]PathConfig{
 	"pahole":  Allowed,
 	"patch":   Allowed,
 	"pstree":  Allowed,
+    "realpath": Allowed,
 	"rsync":   Allowed,
 	"sh":      Allowed,
 	"tr":      Allowed,
